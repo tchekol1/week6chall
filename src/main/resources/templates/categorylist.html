@@ -33,12 +33,12 @@
                         <p class="card-header text-center">
                         <div class="col" th:each="car:${allcats}">
                             <span th:inline="text">[[${car.type}]] </span>
-                            <div class="card-body">
 
-                            <a
-                                    th:href="@{/catdelete/{id}(id=${car.id})}" class="card-link btn btn-warning">Delete</a>
-                            <a
-                                    th:href="@{/catupdate/{id}(id=${car.id})}" class="card-link btn btn-warning">Update</a>
+                        <a
+                                th:href="@{/catdelete/{id}(id=${car.id})}" class="card-link btn btn-warning">Delete</a>
+                        <a
+                                th:href="@{/catupdate/{id}(id=${car.id})}" class="card-link btn btn-warning">Update</a>
+                            <div class="card-body">
 
                             </div>
 
