@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+</head>
+<meta charset="UTF-8">
+<title>Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/car.css}">
+</head>
+<div class="container">
+
+    <br>
+    <div class="jumbotron">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-blue">
+            <a class="navbar-brand" href="/home">Car List</a>
+            <a class="navbar-brand" href="/">Category List</a>
+        </nav>
+        <p>
+            <a href="/add"><span class="glyphicon glyphicon-plus">AddCategory </span> </a>
+
+            <a href="/addcar"> <span class="glyphicon glyphicon-plus">AddCar</span></a>
+        </p>
+        <body>
+        <h3>List of Cars</h3>
+<body>
+
+
+
+<form th:action="@{/carprocess}" th:object="${car}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div class="form-group">
+        <label>Manufacturer</label>
+        <input type="text" th:field="*{manufacturer}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Model</label>
+        <input type="text" th:field="*{model}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Mileage</label>
+        <input type="number" th:field="*{mileage}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label></label>Year</label>
+        <input type="number" th:field="*{year}" class="form-control">
+        <small id="emailHelp" class="form-text text-muted"></small>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+
+            <select th:field="*{category}" class="form-control">
+
+                <option th:each="cat:${allcats}"
+                        th:text="${cat.type}"
+                        th:value="${cat.id}"></option>
+
+            </select>
+    </div>
+
+    <div class="form-check">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

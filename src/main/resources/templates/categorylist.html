@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+</head>
+<meta charset="UTF-8">
+<title>Title</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" th:href="@{/car.css}">
+</head>
+<div class="container">
+
+    <br>
+    <div class="jumbotron">
+        <nav class="navbar navbar-expand-sm bg-primary navbar-blue">
+            <a class="navbar-brand" href="/home">Car List</a>
+            <a class="navbar-brand" href="/">Category List</a>
+        </nav>
+        <p>
+            <a href="/add"><span class="glyphicon glyphicon-plus">AddCategory </span> </a>
+
+            <a href="/addcar"> <span class="glyphicon glyphicon-plus">AddCar</span></a>
+        </p>
+        <body>
+        <h3>List of Catgory</h3>
+
+        <div class="row text-center">
+            <div>
+
+                <div class="col-sm-3">
+                    <div class="card text-center">
+                        <p class="card-header text-center">
+                        <div class="col" th:each="car:${allcats}">
+                            <span th:inline="text">[[${car.type}]] </span>
+                            <div class="card-body">
+
+                            <a
+                                    th:href="@{/catdelete/{id}(id=${car.id})}" class="card-link btn btn-warning">Delete</a>
+                            <a
+                                    th:href="@{/catupdate/{id}(id=${car.id})}" class="card-link btn btn-warning">Update</a>
+
+                            </div>
+
+                        </div>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+
+    </div>
+
+    </body>
+</html>
